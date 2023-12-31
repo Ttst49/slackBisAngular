@@ -3,13 +3,29 @@
 }
 
 .top{
+  margin-top: 5px;
   height: 5vh;
   border-bottom: 1px solid grey;
   font-size: x-large;
+}
+
+.arrowBackHover:hover{
+  .arrowBack{
+    filter: invert(100)
+  }
 }
 
 .topDetails{
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.left{
+  display: flex;
+  flex-direction: row;
+}
+
+.right{
+  margin-right: 10px;
 }

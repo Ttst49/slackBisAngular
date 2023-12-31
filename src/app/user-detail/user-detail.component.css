@@ -1,0 +1,8 @@
+.userDetail{
+  margin-left: 30%;
+}
+.arrowBackHover:hover{
+  .arrowBack{
+    filter: invert(100)
+  }
+}

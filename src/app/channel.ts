@@ -1,3 +1,4 @@
+import {UserFull} from "./user-full";
 
 export interface Channel {
   id:number,
@@ -5,4 +6,5 @@ export interface Channel {
   channelMessages :[]
   channelMembers :[]
   channelAdminMembers :[]
+  ownerId:number
 }

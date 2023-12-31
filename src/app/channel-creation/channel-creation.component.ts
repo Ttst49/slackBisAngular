@@ -2,6 +2,7 @@ import {Component, inject} from '@angular/core';
 import {Channel} from "../channel";
 import {FormsModule} from "@angular/forms";
 import {ChannelService} from "../channel.service";
+import {GlobalConstants} from "../common/global-constants";
 
 @Component({
   selector: 'app-channel-creation',
@@ -27,7 +28,8 @@ export class ChannelCreationComponent {
       name: channelName,
       channelMessages :[],
       channelMembers :[],
-      channelAdminMembers :[]
+      channelAdminMembers :[],
+      ownerId: this.getRandomInt(100000000),
     }
     return newChannelObject
   }

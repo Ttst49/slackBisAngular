@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {NgIf, NgOptimizedImage} from "@angular/common";
 import {GlobalConstants} from "../common/global-constants";
+import {UserService} from "../user.service";
 
 @Component({
   selector: 'app-navbar',
@@ -14,6 +15,12 @@ import {GlobalConstants} from "../common/global-constants";
 })
 export class NavbarComponent {
 
+  userService: UserService = inject(UserService)
   token = GlobalConstants.token
   protected readonly localStorage = localStorage;
+    protected readonly GlobalConstants = GlobalConstants;
+
+    constructor() {
+      this.userService.getActualUser()
+    }
 }

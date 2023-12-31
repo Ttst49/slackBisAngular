@@ -33,7 +33,8 @@ export class ChannelDetailComponent {
         name: channelFromFetch.name,
         channelMessages :channelFromFetch.channelMessages,
         channelMembers :channelFromFetch.channelMembers,
-        channelAdminMembers :channelFromFetch.channelAdminMembers
+        channelAdminMembers :channelFromFetch.channelAdminMembers,
+         ownerId: channelFromFetch.owner.id
       }
       console.log(channelFromFetch)
       }})
