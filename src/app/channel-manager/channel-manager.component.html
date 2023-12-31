@@ -1,0 +1,10 @@
+<div class="channelManager">
+  <a href="channel/create" class="btn btn-success">Create a new channel</a>
+  <div *ngIf="GlobalConstants.token != null">
+    <div *ngFor="let channel of channels">
+      <p>{{channel.id}}</p>
+      <p>{{channel.name}}</p>
+    </div>
+
+  </div>
+</div>

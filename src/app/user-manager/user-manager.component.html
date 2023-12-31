@@ -1,0 +1,71 @@
+<main class="all">
+  <section class="form">
+    <div class="logo">
+      <svg width="127" height="127" xmlns="http://www.w3.org/2000/svg">
+        <path d="M27.2 80c0 7.3-5.9 13.2-13.2 13.2C6.7 93.2.8 87.3.8 80c0-7.3 5.9-13.2 13.2-13.2h13.2V80zm6.6 0c0-7.3 5.9-13.2 13.2-13.2 7.3 0 13.2 5.9 13.2 13.2v33c0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V80z" fill="#E01E5A"/>
+        <path d="M47 27c-7.3 0-13.2-5.9-13.2-13.2C33.8 6.5 39.7.6 47 .6c7.3 0 13.2 5.9 13.2 13.2V27H47zm0 6.7c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H13.9C6.6 60.1.7 54.2.7 46.9c0-7.3 5.9-13.2 13.2-13.2H47z" fill="#36C5F0"/>
+        <path d="M99.9 46.9c0-7.3 5.9-13.2 13.2-13.2 7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H99.9V46.9zm-6.6 0c0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V13.8C66.9 6.5 72.8.6 80.1.6c7.3 0 13.2 5.9 13.2 13.2v33.1z" fill="#2EB67D"/>
+        <path d="M80.1 99.8c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V99.8h13.2zm0-6.6c-7.3 0-13.2-5.9-13.2-13.2 0-7.3 5.9-13.2 13.2-13.2h33.1c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H80.1z" fill="#ECB22E"/>
+      </svg>
+    </div>
+    <h1 *ngIf="activeRoute == '/register'" class="form__title">Créer vous un compte!</h1>
+    <h1 *ngIf="activeRoute == '/login'" class="form__title">Connectez vous à votre compte</h1>
+    <p class="form__description">Bienvenue! S'il te plait, entre tes informations</p>
+
+    <form>
+      <label class="form-control__label">Nom d'utilisateur</label>
+      <input [(ngModel)]="username" type="text" class="form-control" name="username" id="username">
+
+      <label class="form-control__label">Mot de passe</label>
+      <div class="password-field">
+        <input [(ngModel)]="password" type="{{typePassword}}" name="password" class="form-control" minlength="4" id="password">
+        <svg (click)="exchangePasswordType()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+        </svg>
+      </div>
+      <div class="password__settings">
+        <label class="password__settings__remember">
+          <input type="checkbox">
+          <span class="custom__checkbox">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+          </span>
+          Se rappeler de moi
+        </label>
+
+        <a href="#">Forgot Password?</a>
+      </div>
+
+
+      <button *ngIf="activeRoute == '/register'" (click)="register(createUserObject(username,password))" type="submit" class="form__submit">S'enregistrer</button>
+      <button *ngIf="activeRoute == '/login'" (click)="login(createUserObject(username,password))" type="submit" class="form__submit">Se connecter</button>
+    </form>
+
+    <p *ngIf="activeRoute == '/register'" class="form__footer">
+      Tu as déjà un compte?<br> <a href="/login">Connecte toi</a>
+    </p>
+    <p *ngIf="activeRoute == '/login'" class="form__footer">
+      Pas encore de compte?<br> <a href="/register">Enregistre toi</a>
+    </p>
+
+
+  </section>
+
+  <section class="form__animation">
+    <div id="ball">
+      <div class="ball">
+        <div id="face">
+          <div class="ball__eyes">
+            <div class="eye_wrap"><span class="eye"></span></div>
+            <div class="eye_wrap"><span class="eye"></span></div>
+          </div>
+          <div class="ball__mouth"></div>
+        </div>
+      </div>
+    </div>
+    <div class="ball__shadow"></div>
+  </section>
+</main>
+
+<script src="assets/js/animation.js"></script>

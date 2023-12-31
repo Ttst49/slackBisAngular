@@ -1,0 +1,7 @@
+<div class="channelCreation">
+  <form>
+    <input [(ngModel)]="channelName" type="text" name="channelName" id="channelName">
+
+    <button (click)="createChannel(createChannelObject(channelName))" class="btn btn-outline-danger" type="submit">Create a new channel</button>
+  </form>
+</div>

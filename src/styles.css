@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@import "bootswatch/dist/litera/bootstrap.min.css";
+@import "font-awesome";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  font-family: Urbanist, Menlo, Roboto, sans-serif;
+}
