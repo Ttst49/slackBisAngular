@@ -4,7 +4,6 @@ import {GlobalConstants} from "../common/global-constants";
 import {ChannelService} from "../channel.service";
 import {Channel} from "../channel";
 import {RouterLink} from "@angular/router";
-import {UserFull} from "../user-full";
 
 
 @Component({
@@ -46,5 +45,6 @@ export class ChannelManagerComponent {
         return this.channels
       }})
   }
+
 
 }

@@ -24,12 +24,13 @@ export class UserDetailComponent {
   route : ActivatedRoute = inject(ActivatedRoute)
 
   constructor() {
+    console.log(this.route.snapshot.url)
     let id = this.route.snapshot.params["id"]
-    if (id){
-      this.getOneUser(id)
-    }else if (this.route.snapshot.url[1] != null
+    if (this.route.snapshot.url[1] != null
       && this.route.snapshot.url[1].path == "getFriends"){
       this.getFriends()
+    }else if (id){
+      this.getOneUser(id)
     }else{
       this.getAllUsers()
     }
@@ -76,20 +77,23 @@ export class UserDetailComponent {
   }
 
   getFriends(){
-    this.userService.getFriends().subscribe({next:(userFromFetch: any)=>{
-        let newUser: UserFull= {
-          id: userFromFetch.id,
-          username: userFromFetch.username,
-          profile: {
-            id: userFromFetch.profile.id,
-            name: userFromFetch.profile.name,
-            lastName: userFromFetch.profile.lastName,
-            requests: userFromFetch.requests,
-            visibility: userFromFetch.profile.visibility,
-            relations: userFromFetch.profile.relations,
+    this.userService.getFriends().subscribe({next:(friendsFromFetch: any)=>{
+        for (let i = 0; i < friendsFromFetch.length;i++){
+          let newFriend : UserFull ={
+            id: friendsFromFetch[i].id,
+            username: friendsFromFetch[i].username,
+            profile: {
+              id: friendsFromFetch[i].profile.id,
+              name: friendsFromFetch[i].profile.name,
+              lastName: friendsFromFetch[i].profile.lastName,
+              requests: friendsFromFetch[i].requests,
+              visibility: friendsFromFetch[i].profile.visibility,
+              relations: friendsFromFetch[i].profile.relations
+            }
           }
+          this.users.push(newFriend)
         }
-        this.users.push(newUser)
+        console.log(this.route.snapshot.url)
       }})
   }
 
