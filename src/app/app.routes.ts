@@ -36,6 +36,9 @@ export const routes: Routes = [
   },
   {
     path: "profile/getFriends", component: UserDetailComponent
+  },
+  {
+    path: "channel/users/:id", component: UserDetailComponent
   }
 
 ];

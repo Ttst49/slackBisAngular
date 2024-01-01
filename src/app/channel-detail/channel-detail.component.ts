@@ -2,7 +2,7 @@ import {Component, inject} from '@angular/core';
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {Channel} from "../channel";
 import {ChannelService} from "../channel.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {routes} from "../app.routes";
 import {FormsModule} from "@angular/forms";
 import {ChannelMessage} from "../channel-message";
@@ -15,7 +15,8 @@ import {GlobalConstants} from "../common/global-constants";
     NgForOf,
     FormsModule,
     NgIf,
-    NgClass
+    NgClass,
+    RouterLink
   ],
   templateUrl: './channel-detail.component.html',
   styleUrl: './channel-detail.component.css'

@@ -5,6 +5,8 @@ import {NgForOf, NgIf} from "@angular/common";
 import {GlobalConstants} from "../common/global-constants";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {Request} from "../request";
+import {Channel} from "../channel";
+import {ChannelService} from "../channel.service";
 
 @Component({
   selector: 'app-user-detail',
@@ -21,15 +23,17 @@ export class UserDetailComponent {
 
   users : UserFull[] = []
   userService : UserService = inject(UserService)
+  channelService : ChannelService = inject(ChannelService)
   route : ActivatedRoute = inject(ActivatedRoute)
 
   constructor() {
-    console.log(this.route.snapshot.url)
     let id = this.route.snapshot.params["id"]
-    if (this.route.snapshot.url[1] != null
+    if (this.route.snapshot.url.length == 3){
+      this.getUsersFromChannel(parseInt(this.route.snapshot.url[2].path))
+    }else if (this.route.snapshot.url[1] != null
       && this.route.snapshot.url[1].path == "getFriends"){
       this.getFriends()
-    }else if (id){
+    } else if (id){
       this.getOneUser(id)
     }else{
       this.getAllUsers()
@@ -89,6 +93,28 @@ export class UserDetailComponent {
               requests: friendsFromFetch[i].requests,
               visibility: friendsFromFetch[i].profile.visibility,
               relations: friendsFromFetch[i].profile.relations
+            }
+          }
+          this.users.push(newFriend)
+        }
+        console.log(this.route.snapshot.url)
+      }})
+  }
+
+
+  getUsersFromChannel(id: number){
+    this.channelService.getOneChannelById(id).subscribe({next:(userFromChannel: any)=>{
+        for (let i = 0; i < userFromChannel.length;i++){
+          let newFriend : UserFull ={
+            id: userFromChannel[i].id,
+            username: userFromChannel[i].username,
+            profile: {
+              id: userFromChannel[i].profile.id,
+              name: userFromChannel[i].profile.name,
+              lastName: userFromChannel[i].profile.lastName,
+              requests: userFromChannel[i].requests,
+              visibility: userFromChannel[i].profile.visibility,
+              relations: userFromChannel[i].profile.relations
             }
           }
           this.users.push(newFriend)
