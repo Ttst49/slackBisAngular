@@ -1,5 +1,8 @@
 .channelDetail{
   margin-left: 30%;
+  position: fixed;
+  width: 70vw;
+  background-color: white;
 }
 
 .top{
@@ -28,4 +31,43 @@
 
 .right{
   margin-right: 10px;
+}
+
+.messageInput{
+  width: 50vw;
+  position: fixed;
+  bottom: 10px;
+  right: 25vw;
+  border-radius: 25px;
+}
+
+.submitInput{
+  width: 20vw;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+.rightMessage{
+  display: flex;
+  justify-content: right;
+}
+
+.leftMessage{
+  margin-left: 30vw;
+  display: flex;
+  justify-content: left;
+}
+
+.messagesZone{
+ overflow: scroll;
+  margin-bottom: 10vh;
+}
+
+.messages{
+  margin-top: 10vh;
+}
+
+.input-form{
+  background-color: white;
 }

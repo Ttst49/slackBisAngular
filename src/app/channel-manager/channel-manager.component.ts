@@ -35,7 +35,7 @@ export class ChannelManagerComponent {
           let newChannel : Channel = {
             id: channelsFromFetch[i].id,
             name: channelsFromFetch[i].name,
-            channelMessages :[],
+            channelMessages : [],
             channelMembers :[],
             channelAdminMembers :[],
             ownerId: channelsFromFetch[i].owner.id
@@ -45,6 +45,7 @@ export class ChannelManagerComponent {
         return this.channels
       }})
   }
+
 
 
 }
