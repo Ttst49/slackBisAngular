@@ -6,7 +6,8 @@
       <p>{{channel.name}}</p>
       <a [routerLink]="['/channel/show/',channel.id]" class="btn btn-outline-primary">Voir ce channel</a>
       <button *ngIf="channel.ownerId == GlobalConstants.actualUser.profile.id" (click)="channelService.removeOneChannel(channel.id)" class="btn btn-outline-danger">supprimer ce channel</button>
+      <a (click)="channelService.leaveChannel(channel.id)" *ngIf="isActualUserMember(channel)" class="btn btn-outline-warning">Quitter ce channel</a>
+      <a (click)="channelService.joinChannel(channel.id)" *ngIf="!isActualUserMember(channel)" class="btn btn-outline-success">Rejoindre ce channel</a>
     </div>
   </div>
 </div>
-

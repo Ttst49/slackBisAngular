@@ -38,7 +38,7 @@ export class ChannelManagerComponent {
           let newChannel : Channel = {
             id: channelsFromFetch[i].id,
             name: channelsFromFetch[i].name,
-            channelMessages : [],
+            channelMessages : channelsFromFetch[i].channelMessages,
             channelMembers : channelsFromFetch[i].channelMembers,
             channelAdminMembers :channelsFromFetch[i].adminChannelMembers,
             ownerId: channelsFromFetch[i].owner.id
@@ -49,6 +49,15 @@ export class ChannelManagerComponent {
       }})
   }
 
+
+  isActualUserMember(channel: Channel){
+    for (let i = 0;i<channel.channelMembers.length;i++){
+      if (channel.channelMembers[i].relatedTo.username == GlobalConstants.actualUser.username){
+        return true
+      }
+    }
+    return false
+  }
 
 
 

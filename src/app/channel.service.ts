@@ -53,6 +53,16 @@ export class ChannelService {
       })
   }
 
+  leaveChannel(id: number) {
+      this.http.post(GlobalConstants.baseUrl+`channel/leave/${id}`,id).subscribe({
+        next:(data)=>{
+          if (data == "Vous ne pouvez pas quitter avant d'avoir promu un nouveau propriétaire"){
+            GlobalConstants.errorStatus = data.toString()
+          }
+        }
+      })
+  }
+
   sendMessageToChannel(channelId: number, message: ChannelMessage) {
     this.http.post(GlobalConstants.baseUrl+`channel/message/create/${channelId}`,message).subscribe({
       next:(data)=>{
@@ -60,5 +70,6 @@ export class ChannelService {
       }
     })
   }
+
 
 }
