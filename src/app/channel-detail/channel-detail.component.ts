@@ -7,7 +7,6 @@ import {routes} from "../app.routes";
 import {FormsModule} from "@angular/forms";
 import {ChannelMessage} from "../channel-message";
 import {GlobalConstants} from "../common/global-constants";
-import * as os from "os";
 
 @Component({
   selector: 'app-channel-detail',
@@ -72,5 +71,4 @@ export class ChannelDetailComponent {
     return message.author.relatedTo.username == GlobalConstants.actualUser.username;
   }
 
-  protected readonly os = os;
 }

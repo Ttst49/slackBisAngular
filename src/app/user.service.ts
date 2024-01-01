@@ -51,7 +51,7 @@ export class UserService {
             relations: actualUserFromFetch.profile.relations
           }
         }
-        console.log(GlobalConstants.actualUser)
+        console.log("Currently connected")
         }})
   }
 
@@ -63,7 +63,7 @@ export class UserService {
   sendFriendRequest(id:number){
     return this.http.post(GlobalConstants.baseUrl+`request/send/${id}`,id).subscribe(
       {next:(data)=>{
-        console.log(data)
+        console.log(true)
         }}
     )
   }

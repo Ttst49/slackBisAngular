@@ -23,8 +23,13 @@
             <span class="text-sm font-semibold text-gray-900 dark:text-white">{{message.author.relatedTo.username}}</span>
             <span class="text-sm font-normal text-gray-500 dark:text-gray-400">{{message.author.id}}</span>
           </div>
-          <p class="text-sm font-normal py-2.5 text-gray-900 dark:text-white">{{message.content}}</p>
-          <span class="text-sm font-normal text-gray-500 dark:text-gray-400"><img src="assets/images/" alt="message icon"></span>
+          <ng-container *ngIf="message.content != ''">
+            <p class="text-sm font-normal py-2.5 text-gray-900 dark:text-white">{{message.content}}</p>
+          </ng-container>
+          <ng-container *ngIf="message.content == ''">
+            <p class="text-sm font-normal py-2.5 text-gray-900 dark:text-white">Message vide</p>
+          </ng-container>
+          <span class="text-sm font-normal text-gray-500 dark:text-gray-400"><img src="assets/images/message-solid.svg" alt="message icon"></span>
         </div>
         <button id="dropdownMenuIconButton" data-dropdown-toggle="dropdownDots" data-dropdown-placement="bottom-start" class="inline-flex self-center items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-800 dark:focus:ring-gray-600" type="button">
           <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 4 15">
@@ -52,10 +57,13 @@
         </div>
       </div>
     </div>
+    <div class="form">
       <form class="input-form max-w-sm mx-auto">
         <input [(ngModel)]="messageInput" [ngModelOptions]="{standalone: true}"  class="messageInput" type="text" name="" id="" placeholder="Message...">
-        <button (click)="sendMessage(channel.id,createMessageObject(messageInput))" type="submit" class="btn btn-outline-dark submitInput">Envoyer</button>
+        <button (click)="sendMessage(channel.id,createMessageObject(messageInput))" type="button" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Envoyer</button>
       </form>
+    </div>
+
 
   </div>
 </ng-container>

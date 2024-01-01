@@ -23,9 +23,12 @@ export class ChannelManagerComponent {
   protected readonly GlobalConstants = GlobalConstants;
   channels : Channel[] = []
 
+
   constructor() {
     this.getAllChannels()
+
   }
+
 
   getAllChannels(): any{
     this.channelService.getAllChannels().subscribe({
@@ -36,8 +39,8 @@ export class ChannelManagerComponent {
             id: channelsFromFetch[i].id,
             name: channelsFromFetch[i].name,
             channelMessages : [],
-            channelMembers :[],
-            channelAdminMembers :[],
+            channelMembers : channelsFromFetch[i].channelMembers,
+            channelAdminMembers :channelsFromFetch[i].adminChannelMembers,
             ownerId: channelsFromFetch[i].owner.id
           }
           this.channels.push(newChannel)
@@ -45,6 +48,7 @@ export class ChannelManagerComponent {
         return this.channels
       }})
   }
+
 
 
 

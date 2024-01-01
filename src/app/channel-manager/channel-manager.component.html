@@ -5,7 +5,8 @@
       <p>{{channel.id}}</p>
       <p>{{channel.name}}</p>
       <a [routerLink]="['/channel/show/',channel.id]" class="btn btn-outline-primary">Voir ce channel</a>
-      <a *ngIf="channel.ownerId == GlobalConstants.actualUser.profile.id" (click)="channelService.removeOneChannel(channel.id)" class="btn btn-outline-danger">supprimer ce channel</a>
+      <button *ngIf="channel.ownerId == GlobalConstants.actualUser.profile.id" (click)="channelService.removeOneChannel(channel.id)" class="btn btn-outline-danger">supprimer ce channel</button>
     </div>
   </div>
 </div>
+

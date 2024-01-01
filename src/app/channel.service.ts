@@ -37,7 +37,7 @@ export class ChannelService {
   }
 
   removeOneChannel(id:number){
-      this.http.delete(GlobalConstants.baseUrl+`channel/remove/${id}`).subscribe({
+      return this.http.delete(GlobalConstants.baseUrl+`channel/remove/${id}`).subscribe({
         next:(data)=>{
           console.log(data)
         }
@@ -60,4 +60,5 @@ export class ChannelService {
       }
     })
   }
+
 }
