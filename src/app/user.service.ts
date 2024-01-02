@@ -60,12 +60,6 @@ export class UserService {
     return this.http.get(GlobalConstants.baseUrl+"relations/getFriends")
   }
 
-  sendFriendRequest(id:number){
-    return this.http.post(GlobalConstants.baseUrl+`request/send/${id}`,id).subscribe(
-      {next:(data)=>{
-        console.log(true)
-        }}
-    )
-  }
+
 
 }
