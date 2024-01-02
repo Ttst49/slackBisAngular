@@ -2,9 +2,17 @@
 
   <ng-container *ngIf="friends">
     <ng-container *ngFor="let friend of friends">
-      <label for="{{friend.id}}">{{friend.username}}</label>
-      <input (change)="onChange(friend.id)" type="checkbox" name="{{friend.id}}">
+
+      <div class="m-2.5 flex-grow max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{friend.username}}</h5>
+        <p class="font-normal text-gray-700 dark:text-gray-400">Ajouter au groupe?</p>
+        <label class="mt-4 container">
+          <input (change)="onChange(friend.id)" name="{{friend.id}}" type="checkbox">
+          <div class="checkmark"></div>
+        </label>
+      </div>
+
     </ng-container>
   </ng-container>
-  <button (click)="createGroup(all_selected_values)" class="btn btn-outline-success">Créer group</button>
+  <button (click)="createGroup(all_selected_values)" class="creationButton btn btn-outline-success">Créer group</button>
 </div>
