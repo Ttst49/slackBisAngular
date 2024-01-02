@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {GlobalConstants} from "./common/global-constants";
+import {Request} from "./request";
+import {data} from "autoprefixer";
 
 @Injectable({
   providedIn: 'root'
@@ -12,4 +14,30 @@ export class RequestService {
   getAllRequests() {
     return this.http.get(GlobalConstants.baseUrl+"request/all")
   }
+
+  sendFriendRequest(id:number){
+    return this.http.post(GlobalConstants.baseUrl+`request/send/${id}`,id).subscribe(
+      {next:(data)=>{
+          console.log(true)
+        }}
+    )
+  }
+
+  acceptFriendRequest(id:number){
+    this.http.post(GlobalConstants.baseUrl+`request/accept/${id}`,id).subscribe({
+      next:(data)=>{
+        console.log(data)
+      }
+    })
+  }
+
+  denyFriendRequest(id:number){
+    this.http.post(GlobalConstants.baseUrl+`request/deny/${id}`,id).subscribe({
+      next:(data)=>{
+        console.log(data)
+      }
+    })
+  }
+
+
 }
