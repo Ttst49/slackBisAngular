@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {GlobalConstants} from "./common/global-constants";
-import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GroupService {
 
-  constructor(private http : HttpClient, private router: Router) { }
+  constructor(private http : HttpClient) { }
 
 
   getAllGroupsFromActualUser(){

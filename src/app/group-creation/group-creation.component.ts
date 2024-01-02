@@ -5,6 +5,7 @@ import {UserService} from "../user.service";
 import {FormsModule} from "@angular/forms";
 import {GroupService} from "../group.service";
 import {Router} from "@angular/router";
+import {GlobalConstants} from "../common/global-constants";
 
 @Component({
   selector: 'app-group-creation',
@@ -67,4 +68,5 @@ export class GroupCreationComponent {
     })
   }
 
+  protected readonly GlobalConstants = GlobalConstants;
 }
