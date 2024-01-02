@@ -1,1 +1,12 @@
-<p>request-manager works!</p>
+<div *ngIf="GlobalConstants.token != null" class="requestManager">
+  <ng-container *ngIf="GlobalConstants.actualUser != null">
+    <div *ngIf="GlobalConstants.actualUser.profile.requests.length === 0">
+      <p>Pas de requêtes</p>
+    </div>
+    <ng-container *ngFor="let request of GlobalConstants.actualUser.profile.requests">
+      recip:{{request.recipient.relatedTo.username}} <br>
+      send: {{request.sender.relatedTo.username}}
+    </ng-container>
+  </ng-container>
+
+</div>
