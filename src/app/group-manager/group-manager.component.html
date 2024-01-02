@@ -5,9 +5,10 @@
 
 
     <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <a href="#">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ group.owner.relatedTo.username}}</h5>
-      </a>
+      <div class="name">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><i>{{group.groupMembers[0].relatedTo.username}}</i>,</h5>
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><i>{{group.groupMembers[1].relatedTo.username}}</i>...</h5>
+      </div>
       <p *ngIf="group.groupMessages.length == 0" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Aucun message pour le moment...</p>
       <p *ngIf="group.groupMessages.length > 0" class="mb-3 font-normal text-gray-700 dark:text-gray-400"><strong>Dernier message:
         <br> </strong> {{group.groupMessages[group.groupMessages.length-1].content}} (<i>{{group.groupMessages[group.groupMessages.length-1].author.relatedTo.username}}</i>)</p>

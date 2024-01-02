@@ -8,6 +8,7 @@ import {ProfileFull} from "../profile-full";
 import {GlobalConstants} from "../common/global-constants";
 import {RouterLink} from "@angular/router";
 import {max} from "rxjs";
+import {group} from "@angular/animations";
 
 @Component({
   selector: 'app-group-manager',
@@ -34,7 +35,6 @@ export class GroupManagerComponent {
     this.groupService.getAllGroupsFromActualUser().subscribe({
       next:(groupsFromFetch: any)=>{
         for (let i =0;i<groupsFromFetch.length;i++){
-          console.log(groupsFromFetch[i].groupMessages)
           let newGroup :Group = {
             id: groupsFromFetch[i].id,
             groupMessages: groupsFromFetch[i].groupMessages,
@@ -50,5 +50,5 @@ export class GroupManagerComponent {
 
 
   protected readonly GlobalConstants = GlobalConstants;
-    protected readonly max = max;
+
 }

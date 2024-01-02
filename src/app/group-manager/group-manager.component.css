@@ -1,3 +1,8 @@
 .groupManager{
   margin-left: 30vw;
 }
+
+.name{
+  display: flex;
+  flex-direction: row;
+}
