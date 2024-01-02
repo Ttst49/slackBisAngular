@@ -7,6 +7,7 @@ import {routes} from "../app.routes";
 import {FormsModule} from "@angular/forms";
 import {Message} from "../message";
 import {GlobalConstants} from "../common/global-constants";
+import {MessageService} from "../message.service";
 
 @Component({
   selector: 'app-channel-detail',
@@ -27,6 +28,7 @@ export class ChannelDetailComponent {
   channelService: ChannelService = inject(ChannelService)
   route : ActivatedRoute = inject(ActivatedRoute)
   messageInput : string = ""
+  messageService: MessageService = inject(MessageService)
 
   constructor() {
     let id = this.route.snapshot.params["id"]
@@ -48,28 +50,9 @@ export class ChannelDetailComponent {
   }
 
 
-  createMessageObject(content: string){
-    let messageObject: Message = {
-      id: 12,
-      author: {
-        id: 12,
-        name: "create",
-        lastName: "create",
-        relatedTo: GlobalConstants.actualUser
-      },
-      content: content
-    }
-    return messageObject
-  }
-
-  sendMessage(channelId:number, message : Message){
-    this.channelService.sendMessageToChannel(channelId,message)
-  }
 
   protected readonly GlobalConstants = GlobalConstants;
 
-  isFromActualUser(message: Message) {
-    return message.author.relatedTo.username == GlobalConstants.actualUser.username;
-  }
 
+  protected readonly MessageService = MessageService;
 }

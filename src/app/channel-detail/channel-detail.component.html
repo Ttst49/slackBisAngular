@@ -4,7 +4,7 @@
     <div class="topDetails">
       <div class="left">
         <a href="/channels" class="btn btn-outline-dark arrowBackHover"><img class="arrowBack" src="/assets/images/left-long-solid.svg"></a>
-        <p style="margin-left: 10px">{{channel.name}}</p>
+        <p style="margin-left: 10px"><i>{{channel.name}}</i></p>
       </div>
     <div class="right">
       <a href="channel/users/{{channel.id}}" ><img src="assets/images/user-group-solid.svg" alt="user-group-icon"></a>
@@ -16,7 +16,7 @@
 
   <div class="messagesZone">
     <div *ngFor="let message of channel.channelMessages" class="messages">
-      <div [ngClass]="isFromActualUser(message) ? 'rightMessage': 'leftMessage'" class="flex items-start gap-2.5">
+      <div [ngClass]="messageService.isFromActualUser(message) ? 'rightMessage': 'leftMessage'" class="flex items-start gap-2.5">
         <img class="w-8 h-8 rounded-full" src="assets/images/circle-user-solid.svg" alt="icon user">
         <div class="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
           <div class="flex items-center space-x-2 rtl:space-x-reverse">
@@ -60,7 +60,7 @@
     <div class="form">
       <form class="input-form max-w-sm mx-auto">
         <input [(ngModel)]="messageInput" [ngModelOptions]="{standalone: true}"  class="messageInput" type="text" name="" id="" placeholder="Message...">
-        <button (click)="sendMessage(channel.id,createMessageObject(messageInput))" type="button" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Envoyer</button>
+        <button (click)="channelService.sendMessage(channel.id,messageService.createMessageObject(messageInput))" type="button" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Envoyer</button>
       </form>
     </div>
 
