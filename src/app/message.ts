@@ -1,6 +1,6 @@
 import {UserFull} from "./user-full";
 
-export interface ChannelMessage {
+export interface Message {
   id: number,
   author: {
     id:number,
