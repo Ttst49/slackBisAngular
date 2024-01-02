@@ -1,11 +1,8 @@
-import {Component, inject} from '@angular/core';
+import {Component, Inject, inject} from '@angular/core';
 import {Group} from "../group";
-import {ActivatedRoute, RouterLink} from "@angular/router";
+import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {GroupService} from "../group.service";
-import {Message} from "../message";
-import {UserFull} from "../user-full";
-import {ProfileFull} from "../profile-full";
-import {NgClass, NgForOf, NgIf} from "@angular/common";
+import {DOCUMENT, NgClass, NgForOf, NgIf} from "@angular/common";
 import {GlobalConstants} from "../common/global-constants";
 import {FormsModule} from "@angular/forms";
 import {MessageService} from "../message.service";
@@ -30,6 +27,8 @@ export class GroupDetailComponent {
   groupService: GroupService = inject(GroupService)
   messageService: MessageService = inject(MessageService)
   messageInput: string = ""
+  previousLength: number = 0
+  router: Router = inject(Router)
 
 
   constructor() {
@@ -57,4 +56,17 @@ export class GroupDetailComponent {
 
 
   protected readonly GlobalConstants = GlobalConstants;
+
+  checkGroupMessageLength(previousLength: number= this.previousLength) {
+    if (this.group.groupMessages.length > previousLength){
+      this.previousLength = this.group.groupMessages.length
+      console.log(this.previousLength)
+      return setTimeout(()=>{window.location.reload()},1000)
+    }else {
+      return false
+    }
+  }
+
+
 }
+
