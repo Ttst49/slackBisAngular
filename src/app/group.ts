@@ -5,7 +5,7 @@ import {ProfileFull} from "./profile-full";
 export interface Group {
   id:number
   groupMessages: Message[]
-  groupMembers: UserFull[]
+  groupMembers: ProfileFull[]
   adminMembers: ProfileFull[]
   owner: ProfileFull
 }
