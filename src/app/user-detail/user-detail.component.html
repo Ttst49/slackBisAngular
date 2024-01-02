@@ -1,15 +1,12 @@
 <div *ngIf="GlobalConstants.token != null" class="userDetail">
-  <div *ngFor="let user of users" class="users">
-
-    <div *ngIf="route.snapshot.params['id'] != null">
+    <div *ngIf="route.snapshot.params['id'] != null" class="topButtons">
       <a href="/users" class="btn btn-outline-dark arrowBackHover">
         <img class="arrowBack" src="/assets/images/left-long-solid.svg" alt="arrow">
       </a>
+      <a class="btn btn-outline-secondary" href="/request/all">Voir requetes d'amis...</a>
     </div>
 
-
-
-
+  <div *ngFor="let user of users" class="users">
 
     <div style="margin: 20px" class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div class="flex justify-end px-4 pt-4">
