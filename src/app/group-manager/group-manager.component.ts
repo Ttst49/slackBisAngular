@@ -7,6 +7,7 @@ import {UserFull} from "../user-full";
 import {ProfileFull} from "../profile-full";
 import {GlobalConstants} from "../common/global-constants";
 import {RouterLink} from "@angular/router";
+import {max} from "rxjs";
 
 @Component({
   selector: 'app-group-manager',
@@ -49,4 +50,5 @@ export class GroupManagerComponent {
 
 
   protected readonly GlobalConstants = GlobalConstants;
+    protected readonly max = max;
 }
