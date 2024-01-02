@@ -29,9 +29,11 @@ export class GroupManagerComponent {
 
   getAllGroupsFromActualUser(){
     this.groupService.getAllGroupsFromActualUser().subscribe({
-      next:(groupsFromFetch:any)=>{
+      next:(groupsFromFetch: any)=>{
         for (let i =0;i<groupsFromFetch.length;i++){
+          console.log(groupsFromFetch[i].groupMessages)
           let newGroup :Group = {
+            id: groupsFromFetch[i].id,
             groupMessages: groupsFromFetch[i].groupMessages,
             groupMembers: groupsFromFetch[i].groupMembers,
             adminMembers: groupsFromFetch[i].adminMembers,
