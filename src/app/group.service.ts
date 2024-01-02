@@ -14,4 +14,7 @@ export class GroupService {
     return this.http.get(GlobalConstants.baseUrl+"group/conversation/showAll")
   }
 
+  getOneGroupFromId(id: number) {
+    return this.http.get(GlobalConstants.baseUrl+`group/conversation/show/${id}`)
+  }
 }
