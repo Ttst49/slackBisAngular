@@ -1,1 +1,8 @@
-<p>group-detail works!</p>
+<div *ngIf="GlobalConstants.token != null" class="groupDetail">
+  <a href="/users" class="btn btn-outline-dark arrowBackHover">
+    <img class="arrowBack" src="/assets/images/left-long-solid.svg" alt="arrow">
+  </a>
+  <ng-container *ngIf="group">
+    {{group.owner.relatedTo.username}}
+  </ng-container>
+</div>
