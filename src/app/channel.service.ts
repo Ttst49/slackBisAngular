@@ -5,7 +5,7 @@ import {HttpHeaders} from "@angular/common/http";
 import {Channel} from "./channel";
 import {ChannelCreationComponent} from "./channel-creation/channel-creation.component";
 import {Router} from "@angular/router";
-import {ChannelMessage} from "./channel-message";
+import {Message} from "./message";
 
 @Injectable({
   providedIn: 'root'
@@ -63,7 +63,7 @@ export class ChannelService {
       })
   }
 
-  sendMessageToChannel(channelId: number, message: ChannelMessage) {
+  sendMessageToChannel(channelId: number, message: Message) {
     this.http.post(GlobalConstants.baseUrl+`channel/message/create/${channelId}`,message).subscribe({
       next:(data)=>{
         console.log(data)
