@@ -1,3 +1,5 @@
+import {Request} from "./request";
+
 export interface UserFull {
   id: number,
   username: string,
@@ -5,7 +7,7 @@ export interface UserFull {
     id: number,
     name: string,
     lastName: string,
-    requests: [],
+    requests: Request[],
     visibility: boolean,
     relations: []
   }
