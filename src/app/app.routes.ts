@@ -8,6 +8,7 @@ import {UserDetailComponent} from "./user-detail/user-detail.component";
 import {GroupManagerComponent} from "./group-manager/group-manager.component";
 import {GroupDetailComponent} from "./group-detail/group-detail.component";
 import {GroupCreationComponent} from "./group-creation/group-creation.component";
+import {RequestManagerComponent} from "./request-manager/request-manager.component";
 
 export const routes: Routes = [
   {
@@ -51,6 +52,9 @@ export const routes: Routes = [
   },
   {
     path: "group/create", component: GroupCreationComponent
+  },
+  {
+    path: "request/all", component: RequestManagerComponent
   }
 
 ];
