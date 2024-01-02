@@ -63,7 +63,7 @@ export class ChannelService {
       })
   }
 
-  sendMessageToChannel(channelId: number, message: Message) {
+  sendMessage(channelId: number, message: Message) {
     this.http.post(GlobalConstants.baseUrl+`channel/message/create/${channelId}`,message).subscribe({
       next:(data)=>{
         console.log(data)
