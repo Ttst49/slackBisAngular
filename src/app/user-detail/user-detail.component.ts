@@ -7,6 +7,7 @@ import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {Request} from "../request";
 import {Channel} from "../channel";
 import {ChannelService} from "../channel.service";
+import {RequestService} from "../request.service";
 
 @Component({
   selector: 'app-user-detail',
@@ -24,6 +25,7 @@ export class UserDetailComponent {
   users : UserFull[] = []
   userService : UserService = inject(UserService)
   channelService : ChannelService = inject(ChannelService)
+  requestService : RequestService = inject(RequestService)
   route : ActivatedRoute = inject(ActivatedRoute)
 
   constructor() {
@@ -123,8 +125,9 @@ export class UserDetailComponent {
       }})
   }
 
+
   sendFriendRequest(id:number){
-    this.userService.sendFriendRequest(id)
+    this.requestService.sendFriendRequest(id)
   }
 
 
