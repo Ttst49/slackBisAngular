@@ -32,20 +32,17 @@
   --spread: 20px;
 }
 
-/* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
   background: black;
-  box-shadow: -10px -10px var(--spread) 0px #5B51D8, 0 -10px var(--spread) 0px #833AB4, 10px -10px var(--spread) 0px #E1306C, 10px 0 var(--spread) 0px #FD1D1D, 10px 10px var(--spread) 0px #F77737, 0 10px var(--spread) 0px #FCAF45, -10px 10px var(--spread) 0px #FFDC80;
+  box-shadow: -10px -10px var(--spread) 0 #5B51D8, 0 -10px var(--spread)0 #833AB4, 10px -10px var(--spread)0 #E1306C, 10px 0 var(--spread)0 #FD1D1D, 10px 10px var(--spread)0 #F77737, 0 10px var(--spread)0 #FCAF45, -10px 10px var(--spread)0 #FFDC80;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-/* Show the checkmark when checked */
 .container input:checked ~ .checkmark:after {
   display: block;
 }
