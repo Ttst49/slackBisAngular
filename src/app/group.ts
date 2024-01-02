@@ -6,5 +6,5 @@ export interface Group {
   groupMessages: Message,
   groupMembers: UserFull[]
   adminMembers: ProfileFull[]
-  owner: UserFull
+  owner: ProfileFull
 }
