@@ -1,1 +1,10 @@
-<p>group-creation works!</p>
+<div class="groupCreation">
+
+  <ng-container *ngIf="friends">
+    <ng-container *ngFor="let friend of friends">
+      <label for="{{friend.id}}">{{friend.username}}</label>
+      <input (change)="onChange(friend.id)" type="checkbox" name="{{friend.id}}">
+    </ng-container>
+  </ng-container>
+  <button (click)="createGroup(all_selected_values)" class="btn btn-outline-success">Créer group</button>
+</div>
