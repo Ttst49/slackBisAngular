@@ -1,7 +1,7 @@
-import {UserFull} from "./user-full";
+import {ProfileFull} from "./profile-full";
 
 export interface Request {
   id: number,
-  recipient: UserFull,
-  sender: UserFull
+  recipient: ProfileFull,
+  sender: ProfileFull
 }
