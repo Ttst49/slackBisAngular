@@ -5,7 +5,7 @@ import {ChannelService} from "../channel.service";
 import {ActivatedRoute, RouterLink} from "@angular/router";
 import {routes} from "../app.routes";
 import {FormsModule} from "@angular/forms";
-import {ChannelMessage} from "../channel-message";
+import {Message} from "../message";
 import {GlobalConstants} from "../common/global-constants";
 
 @Component({
@@ -49,7 +49,7 @@ export class ChannelDetailComponent {
 
 
   createMessageObject(content: string){
-    let messageObject: ChannelMessage = {
+    let messageObject: Message = {
       id: 12,
       author: {
         id: 12,
@@ -62,13 +62,13 @@ export class ChannelDetailComponent {
     return messageObject
   }
 
-  sendMessage(channelId:number, message : ChannelMessage){
+  sendMessage(channelId:number, message : Message){
     this.channelService.sendMessageToChannel(channelId,message)
   }
 
   protected readonly GlobalConstants = GlobalConstants;
 
-  isFromActualUser(message: ChannelMessage) {
+  isFromActualUser(message: Message) {
     return message.author.relatedTo.username == GlobalConstants.actualUser.username;
   }
 
