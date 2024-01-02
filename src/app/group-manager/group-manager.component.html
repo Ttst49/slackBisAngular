@@ -1,3 +1,5 @@
-<div class="groupManager">
-  <p>group-manager works!</p>
+<div *ngIf="GlobalConstants.token != null" class="groupManager">
+  <div *ngFor="let group of groups">
+    {{group.owner.relatedTo.username}}
+  </div>
 </div>
