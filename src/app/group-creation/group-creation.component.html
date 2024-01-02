@@ -6,10 +6,15 @@
       <div class="m-2.5 flex-grow max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{friend.username}}</h5>
         <p class="font-normal text-gray-700 dark:text-gray-400">Ajouter au groupe?</p>
-        <label class="mt-4 container">
-          <input (change)="onChange(friend.id)" name="{{friend.id}}" type="checkbox">
-          <div class="checkmark"></div>
-        </label>
+        <div class="mt-4 container">
+          <input (change)="onChange(friend.id)" name="{{friend.id}}" type="checkbox" id="cbx2" style="display: none;">
+          <label for="cbx2" class="check">
+            <svg width="18px" height="18px" viewBox="0 0 18 18">
+              <path d="M 1 9 L 1 9 c 0 -5 3 -8 8 -8 L 9 1 C 14 1 17 5 17 9 L 17 9 c 0 4 -4 8 -8 8 L 9 17 C 5 17 1 14 1 9 L 1 9 Z"></path>
+              <polyline points="1 9 7 14 15 4"></polyline>
+            </svg>
+          </label>
+        </div>
       </div>
 
     </ng-container>
