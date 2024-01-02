@@ -7,6 +7,7 @@ import {ChannelDetailComponent} from "./channel-detail/channel-detail.component"
 import {UserDetailComponent} from "./user-detail/user-detail.component";
 import {GroupManagerComponent} from "./group-manager/group-manager.component";
 import {GroupDetailComponent} from "./group-detail/group-detail.component";
+import {GroupCreationComponent} from "./group-creation/group-creation.component";
 
 export const routes: Routes = [
   {
@@ -47,6 +48,9 @@ export const routes: Routes = [
   },
   {
     path: "group/show/:id", component: GroupDetailComponent
+  },
+  {
+    path: "group/create", component: GroupCreationComponent
   }
 
 ];
