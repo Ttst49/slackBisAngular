@@ -6,13 +6,15 @@ import {Message} from "../message";
 import {UserFull} from "../user-full";
 import {ProfileFull} from "../profile-full";
 import {GlobalConstants} from "../common/global-constants";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-group-manager',
   standalone: true,
   imports: [
     NgForOf,
-    NgIf
+    NgIf,
+    RouterLink
   ],
   templateUrl: './group-manager.component.html',
   styleUrl: './group-manager.component.css'
