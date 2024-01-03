@@ -4,8 +4,6 @@ import {UserService} from "../user.service";
 import {NgForOf, NgIf} from "@angular/common";
 import {GlobalConstants} from "../common/global-constants";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
-import {Request} from "../request";
-import {Channel} from "../channel";
 import {ChannelService} from "../channel.service";
 import {RequestService} from "../request.service";
 
@@ -29,12 +27,13 @@ export class UserDetailComponent {
   route : ActivatedRoute = inject(ActivatedRoute)
 
   constructor() {
+    this.getFriends()
     let id = this.route.snapshot.params["id"]
     if (this.route.snapshot.url.length == 3){
       this.getUsersFromChannel(parseInt(this.route.snapshot.url[2].path))
     }else if (this.route.snapshot.url[1] != null
       && this.route.snapshot.url[1].path == "getFriends"){
-      this.getFriends()
+      this.users = GlobalConstants.actualFriends
     } else if (id){
       this.getOneUser(id)
     }else{
@@ -82,25 +81,8 @@ export class UserDetailComponent {
       }})
   }
 
-  getFriends(){
-    this.userService.getFriends().subscribe({next:(friendsFromFetch: any)=>{
-        for (let i = 0; i < friendsFromFetch.length;i++){
-          let newFriend : UserFull ={
-            id: friendsFromFetch[i].id,
-            username: friendsFromFetch[i].username,
-            profile: {
-              id: friendsFromFetch[i].profile.id,
-              name: friendsFromFetch[i].profile.name,
-              lastName: friendsFromFetch[i].profile.lastName,
-              requests: friendsFromFetch[i].requests,
-              visibility: friendsFromFetch[i].profile.visibility,
-              relations: friendsFromFetch[i].profile.relations
-            }
-          }
-          this.users.push(newFriend)
-        }
-        console.log(this.route.snapshot.url)
-      }})
+  getFriends() {
+    this.userService.getFriends()
   }
 
 
@@ -132,4 +114,7 @@ export class UserDetailComponent {
 
 
   protected readonly GlobalConstants = GlobalConstants;
+
+
+
 }
