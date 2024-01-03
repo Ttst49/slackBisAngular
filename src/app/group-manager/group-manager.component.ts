@@ -2,13 +2,8 @@ import {Component, inject} from '@angular/core';
 import {NgForOf, NgIf} from "@angular/common";
 import {Group} from "../group";
 import {GroupService} from "../group.service";
-import {Message} from "../message";
-import {UserFull} from "../user-full";
-import {ProfileFull} from "../profile-full";
 import {GlobalConstants} from "../common/global-constants";
 import {RouterLink} from "@angular/router";
-import {max} from "rxjs";
-import {group} from "@angular/animations";
 
 @Component({
   selector: 'app-group-manager',
