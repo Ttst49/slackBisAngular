@@ -1,7 +1,6 @@
 import {UserFull} from "../user-full";
 import {ProfileFull} from "../profile-full";
 
-
 export class GlobalConstants{
 
 
@@ -10,5 +9,7 @@ export class GlobalConstants{
   public static actualUser : UserFull
   public static actualProfile: ProfileFull
   public static errorStatus : string
+  public static actualFriends : UserFull[]
+  static actualFriendsAsString: string[] = []
 
 }
