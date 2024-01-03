@@ -57,9 +57,31 @@ export class UserService {
 
 
   getFriends() {
-    return this.http.get(GlobalConstants.baseUrl+"relations/getFriends")
+    let friends:UserFull[]  =[]
+    this.http.get(GlobalConstants.baseUrl+"relations/getFriends").subscribe({next:(userFromChannel: any)=>{
+        for (let i = 0; i < userFromChannel.length;i++){
+          let newFriend : UserFull ={
+            id: userFromChannel[i].id,
+            username: userFromChannel[i].username,
+            profile: {
+              id: userFromChannel[i].profile.id,
+              name: userFromChannel[i].profile.name,
+              lastName: userFromChannel[i].profile.lastName,
+              requests: userFromChannel[i].requests,
+              visibility: userFromChannel[i].profile.visibility,
+              relations: userFromChannel[i].profile.relations
+            }
+          }
+          friends.push(newFriend)
+          GlobalConstants.actualFriendsAsString.push(newFriend.username)
+        }
+      }})
+    GlobalConstants.actualFriends = friends
+    return friends
   }
 
-
+  isFriend(userUsername: string) {
+    return GlobalConstants.actualFriendsAsString.includes(userUsername)
+  }
 
 }
