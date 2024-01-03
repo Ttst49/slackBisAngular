@@ -40,23 +40,8 @@ export class GroupCreationComponent {
   }
 
   getFriends(){
-    this.userService.getFriends().subscribe({next:(friendsFromFetch: any)=>{
-        for (let i = 0; i < friendsFromFetch.length;i++){
-          let newFriend : UserFull ={
-            id: friendsFromFetch[i].id,
-            username: friendsFromFetch[i].username,
-            profile: {
-              id: friendsFromFetch[i].profile.id,
-              name: friendsFromFetch[i].profile.name,
-              lastName: friendsFromFetch[i].profile.lastName,
-              requests: friendsFromFetch[i].requests,
-              visibility: friendsFromFetch[i].profile.visibility,
-              relations: friendsFromFetch[i].profile.relations
-            }
-          }
-          this.friends.push(newFriend)
-        }
-      }})
+    this.userService.getFriends()
+    this.friends = GlobalConstants.actualFriends
   }
 
   createGroup(selected_values: number[]){
