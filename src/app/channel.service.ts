@@ -28,7 +28,7 @@ export class ChannelService {
           }
       })
 
-    this.router.navigateByUrl("channels")
+    setTimeout(()=>{this.router.navigateByUrl("channels")},1000)
   }
 
 
