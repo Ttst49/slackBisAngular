@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {GlobalConstants} from "./common/global-constants";
-import {Request} from "./request";
-import {data} from "autoprefixer";
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +12,8 @@ export class RequestService {
   getAllRequests() {
     return this.http.get(GlobalConstants.baseUrl+"request/all")
   }
+
+
 
   sendFriendRequest(id:number){
     return this.http.post(GlobalConstants.baseUrl+`request/send/${id}`,id).subscribe(
@@ -40,4 +40,7 @@ export class RequestService {
   }
 
 
+  getAllRelationsFromUserId(userId: number) {
+    return this.http.get(GlobalConstants.baseUrl+`relations/getRelations/${userId}`)
+  }
 }
