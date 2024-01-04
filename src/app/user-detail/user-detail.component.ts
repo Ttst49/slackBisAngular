@@ -6,6 +6,8 @@ import {GlobalConstants} from "../common/global-constants";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {ChannelService} from "../channel.service";
 import {RequestService} from "../request.service";
+import {relative} from "@angular/compiler-cli";
+import {Relation} from "../relation";
 
 @Component({
   selector: 'app-user-detail',
@@ -25,6 +27,7 @@ export class UserDetailComponent {
   channelService : ChannelService = inject(ChannelService)
   requestService : RequestService = inject(RequestService)
   route : ActivatedRoute = inject(ActivatedRoute)
+  relationId !: number;
 
   constructor() {
     this.getFriends()
@@ -54,12 +57,12 @@ export class UserDetailComponent {
             lastName: usersFromFetch[i].profile.lastName,
             requests: usersFromFetch[i].requests,
             visibility: usersFromFetch[i].profile.visibility,
-            relations: usersFromFetch[i].profile.relations
+            relations: usersFromFetch[i].profile.relations,
+            relatedTo: usersFromFetch[i].profile.relatedTo
           }
         }
         this.users.push(newUser)
       }
-        console.log(this.route.snapshot.url)
       }})
   }
 
@@ -75,6 +78,7 @@ export class UserDetailComponent {
           requests: userFromFetch.requests,
           visibility: userFromFetch.profile.visibility,
           relations: userFromFetch.profile.relations,
+          relatedTo: userFromFetch.profile.relatedTo
         }
       }
       this.users.push(newUser)
@@ -98,7 +102,8 @@ export class UserDetailComponent {
               lastName: userFromChannel[i].profile.lastName,
               requests: userFromChannel[i].requests,
               visibility: userFromChannel[i].profile.visibility,
-              relations: userFromChannel[i].profile.relations
+              relations: userFromChannel[i].profile.relations,
+              relatedTo: userFromChannel[i].profile.relatedTo
             }
           }
           this.users.push(newFriend)
@@ -110,6 +115,49 @@ export class UserDetailComponent {
 
   sendFriendRequest(id:number){
     this.requestService.sendFriendRequest(id)
+  }
+
+   getRelationIdFromUserAndRemoveIt(user :UserFull):number{
+    let actualUserUsername = GlobalConstants.actualUser.id
+
+     for (let j=0;j<1;j++){
+       this.requestService.getAllRelationsFromUserId(actualUserUsername).subscribe({
+         next: (relationsFromFetch: any) => {
+           for (let i = 0; i < relationsFromFetch.length; i++) {
+             if (relationsFromFetch[i].userA.relatedTo.username == GlobalConstants.actualUser.username
+               && relationsFromFetch[i].userB.relatedTo.username == user.username
+               || relationsFromFetch[i].userB.relatedTo.username == GlobalConstants.actualUser.username
+               && relationsFromFetch[i].userA.relatedTo.username == user.username) {
+               console.log(relationsFromFetch[i].id)
+               this.relationId = relationsFromFetch[i].id;
+               this.userService.removeFriend(this.relationId)
+               return true
+             }
+           }
+           return false;
+         }
+       })
+
+       this.requestService.getAllRelationsFromUserId(user.id).subscribe({
+         next:(relationsFromFetch:any)=>{
+           for (let i=0;i<relationsFromFetch.length;i++){
+             if (relationsFromFetch[i].userA.relatedTo.username == GlobalConstants.actualUser.username
+               && relationsFromFetch[i].userB.relatedTo.username == user.username
+               || relationsFromFetch[i].userB.relatedTo.username == GlobalConstants.actualUser.username
+               && relationsFromFetch[i].userA.relatedTo.username == user.username){
+               console.log(relationsFromFetch[i].id)
+               this.relationId = relationsFromFetch[i].id
+               this.userService.removeFriend(this.relationId)
+               return true
+             }
+           }
+           return false
+         }
+       })
+     }
+
+     setTimeout(()=>{window.location.reload()},500)
+     return this.relationId
   }
 
 
