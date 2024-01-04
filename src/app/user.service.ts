@@ -37,19 +37,13 @@ export class UserService {
   }
 
   getActualUser(){
+
     this.http.get(GlobalConstants.baseUrl+"profile/getActual")
       .subscribe({next:(actualUserFromFetch:any)=>{
           GlobalConstants.actualUser = {
           id: actualUserFromFetch.id,
           username: actualUserFromFetch.username,
-          profile: {
-            id: actualUserFromFetch.profile.id,
-            name: actualUserFromFetch.profile.name,
-            lastName: actualUserFromFetch.profile.lastName,
-            requests: actualUserFromFetch.profile.requests,
-            visibility: actualUserFromFetch.profile.visibility,
-            relations: actualUserFromFetch.profile.relations
-          }
+          profile: actualUserFromFetch.profile
         }
         console.log("Currently connected")
         }})
@@ -69,7 +63,8 @@ export class UserService {
               lastName: userFromChannel[i].profile.lastName,
               requests: userFromChannel[i].requests,
               visibility: userFromChannel[i].profile.visibility,
-              relations: userFromChannel[i].profile.relations
+              relations: userFromChannel[i].profile.relations,
+              relatedTo: userFromChannel[i].relatedTo
             }
           }
           friends.push(newFriend)
@@ -84,4 +79,11 @@ export class UserService {
     return GlobalConstants.actualFriendsAsString.includes(userUsername)
   }
 
+  removeFriend(relationId: number) {
+    this.http.delete(GlobalConstants.baseUrl+`relations/remove/${relationId}`).subscribe({
+      next:(data)=>{
+        console.log(data)
+      }
+    })
+  }
 }
