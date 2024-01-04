@@ -1,14 +1,7 @@
-import {Request} from "./request";
+import {ProfileFull} from "./profile-full";
 
 export interface UserFull {
   id: number,
   username: string,
-  profile: {
-    id: number,
-    name: string,
-    lastName: string,
-    requests: Request[],
-    visibility: boolean,
-    relations: []
-  }
+  profile: ProfileFull
 }
