@@ -18,7 +18,7 @@ export class RequestService {
   sendFriendRequest(id:number){
     return this.http.post(GlobalConstants.baseUrl+`request/send/${id}`,id).subscribe(
       {next:(data)=>{
-          console.log(true)
+          console.log(data)
         }}
     )
   }
