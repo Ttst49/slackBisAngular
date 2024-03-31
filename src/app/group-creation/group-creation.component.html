@@ -21,7 +21,8 @@
 
     </ng-container>
   </ng-container>
-  <button (click)="createGroup(all_selected_values)" class="creationButton btn btn-outline-success">Créer group</button>
+  <button *ngIf="all_selected_values.length > 0" (click)="createGroup(all_selected_values)" class="creationButton btn btn-outline-success">Créer group</button>
+  <button *ngIf="all_selected_values.length == 0" class="creationButton btn btn-outline-dark disabled">Créer group</button>
 </div>
 
 <input  type="checkbox" id="cbx2" style="display: none;">
