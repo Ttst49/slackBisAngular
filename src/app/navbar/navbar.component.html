@@ -21,16 +21,22 @@
         </a>
       </li>
       <li>
+        <a href="/conversations" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+          <i class="fa-solid fa-user-group"></i>
+          <span class="flex-1 ms-3 whitespace-nowrap">Conversations</span>
+        </a>
+      </li>
+      <li>
         <a href="/users" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <span class="flex-1 ms-3 whitespace-nowrap">Utilisateurs</span>
         </a>
       </li>
-      <li *ngIf="GlobalConstants.actualUser != null">
+      <li *ngIf="GlobalConstants.actualUser">
         <a href="/profile/{{GlobalConstants.actualUser.id}}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <span class="flex-1 ms-3 whitespace-nowrap">Profil</span>
         </a>
       </li>
-      <li *ngIf="GlobalConstants.actualUser != null">
+      <li *ngIf="GlobalConstants.actualUser">
         <a href="/profile/getFriends" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <span class="flex-1 ms-3 whitespace-nowrap">Amis</span>
         </a>
