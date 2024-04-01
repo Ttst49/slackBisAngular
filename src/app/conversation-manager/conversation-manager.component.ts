@@ -1,9 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {GlobalConstants} from "../common/global-constants";
-import {group} from "@angular/animations";
 import {NgForOf, NgIf} from "@angular/common";
-import {Group} from "../group";
-import {GroupService} from "../group.service";
 import {ConversationService} from "../conversation.service";
 import {Conversation} from "../conversation";
 
@@ -19,7 +16,7 @@ import {Conversation} from "../conversation";
 })
 export class ConversationManagerComponent {
   conversations: Conversation[] = []
-  groupService: ConversationService = inject(ConversationService)
+  conversationService: ConversationService = inject(ConversationService)
 
   constructor() {
     this.getAllConversationsFromActualUser()
@@ -27,17 +24,13 @@ export class ConversationManagerComponent {
 
 
   getAllConversationsFromActualUser(){
-    this.groupService.getAllConversationsFromActualUser().subscribe({
-      next:(groupsFromFetch: any)=>{
-        for (let i =0;i<groupsFromFetch.length;i++){
-          let newGroup :Group = {
-            id: groupsFromFetch[i].id,
-            groupMessages: groupsFromFetch[i].groupMessages,
-            groupMembers: groupsFromFetch[i].groupMembers,
-            adminMembers: groupsFromFetch[i].adminMembers,
-            owner: groupsFromFetch[i].owner
+    this.conversationService.getAllConversationsFromActualUser().subscribe({
+      next:(conversationsFromFetch: any)=>{
+        for (let i =0;i<conversationsFromFetch.length;i++){
+          let newConversation :Conversation = {
+            privateMessages: conversationsFromFetch["privateMessages"]
           }
-          this.groups.push(newGroup)
+          this.conversations.push(newConversation)
         }
       }
     })
