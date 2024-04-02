@@ -117,6 +117,10 @@ export class UserDetailComponent {
     this.requestService.sendFriendRequest(id)
   }
 
+  createConversation(id:number){
+    this.userService.createConversationFromId(id)
+  }
+
    getRelationIdFromUserAndRemoveIt(user :UserFull):number{
     let actualUserUsername = GlobalConstants.actualUser.id
 
