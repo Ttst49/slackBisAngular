@@ -9,6 +9,7 @@ import {GroupManagerComponent} from "./group-manager/group-manager.component";
 import {GroupDetailComponent} from "./group-detail/group-detail.component";
 import {GroupCreationComponent} from "./group-creation/group-creation.component";
 import {RequestManagerComponent} from "./request-manager/request-manager.component";
+import {ConversationManagerComponent} from "./conversation-manager/conversation-manager.component";
 
 export const routes: Routes = [
   {
@@ -55,6 +56,9 @@ export const routes: Routes = [
   },
   {
     path: "request/all", component: RequestManagerComponent
+  },
+  {
+    path: "conversations", component: ConversationManagerComponent
   }
 
 ];
