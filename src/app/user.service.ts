@@ -86,4 +86,12 @@ export class UserService {
       }
     })
   }
+
+  createConversationFromId(id:number) {
+    this.http.post(GlobalConstants.baseUrl+"private/conversation/create/"+id,id).subscribe({
+      next:(data)=>{
+        console.log(data)
+      }
+    })
+  }
 }
