@@ -26,10 +26,15 @@ export class ConversationManagerComponent {
   getAllConversationsFromActualUser(){
     this.conversationService.getAllConversationsFromActualUser().subscribe({
       next:(conversationsFromFetch: any)=>{
+        console.log(conversationsFromFetch[0])
         for (let i =0;i<conversationsFromFetch.length;i++){
           let newConversation :Conversation = {
-            privateMessages: conversationsFromFetch["privateMessages"]
+            id:conversationsFromFetch["id"],
+            privateMessages: conversationsFromFetch["privateMessages"],
+            relatedToProfileA: conversationsFromFetch["relatedToProfileA"],
+            relatedToProfileB: conversationsFromFetch["relatedToProfileB"]
           }
+          console.log(this.conversations)
           this.conversations.push(newConversation)
         }
       }
