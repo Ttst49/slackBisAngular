@@ -20,19 +20,20 @@ export class ConversationManagerComponent {
 
   constructor() {
     this.getAllConversationsFromActualUser()
+    console.log(this.conversations)
   }
 
 
   getAllConversationsFromActualUser(){
     this.conversationService.getAllConversationsFromActualUser().subscribe({
       next:(conversationsFromFetch: any)=>{
-        console.log(conversationsFromFetch[0])
+        console.log(conversationsFromFetch)
         for (let i =0;i<conversationsFromFetch.length;i++){
           let newConversation :Conversation = {
-            id:conversationsFromFetch["id"],
-            privateMessages: conversationsFromFetch["privateMessages"],
-            relatedToProfileA: conversationsFromFetch["relatedToProfileA"],
-            relatedToProfileB: conversationsFromFetch["relatedToProfileB"]
+            id:conversationsFromFetch[i].id,
+            privateMessages: conversationsFromFetch[i].privateMessages,
+            relatedToProfileA: conversationsFromFetch[i].relatedToProfileA,
+            relatedToProfileB: conversationsFromFetch[i].relatedToProfileB
           }
           console.log(this.conversations)
           this.conversations.push(newConversation)

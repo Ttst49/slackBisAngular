@@ -16,7 +16,7 @@
       <p *ngIf="conversation.privateMessages.length == 0" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Aucun message pour le moment...</p>
       <p *ngIf="conversation.privateMessages.length > 0" class="mb-3 font-normal text-gray-700 dark:text-gray-400"><strong>Dernier message:
         <br> </strong> {{conversation.privateMessages[conversation.privateMessages.length-1].content}} (<i>{{conversation.privateMessages[conversation.privateMessages.length-1].author.relatedTo.username}}</i>)</p>
-      <a href="group/show/{{conversation.id}}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+      <a href="conversations/show/{{conversation.id}}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
         Voir Conversation
         <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
