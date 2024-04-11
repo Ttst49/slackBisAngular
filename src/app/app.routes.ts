@@ -10,6 +10,7 @@ import {GroupDetailComponent} from "./group-detail/group-detail.component";
 import {GroupCreationComponent} from "./group-creation/group-creation.component";
 import {RequestManagerComponent} from "./request-manager/request-manager.component";
 import {ConversationManagerComponent} from "./conversation-manager/conversation-manager.component";
+import {ConversationDetailComponent} from "./conversation-detail/conversation-detail.component";
 
 export const routes: Routes = [
   {
@@ -59,6 +60,12 @@ export const routes: Routes = [
   },
   {
     path: "conversations", component: ConversationManagerComponent
+  },
+  {
+    path: "conversations/show/:id", component: ConversationDetailComponent
+  },
+  {
+    path: "conversations/users/:id", component: UserDetailComponent
   }
 
 ];
