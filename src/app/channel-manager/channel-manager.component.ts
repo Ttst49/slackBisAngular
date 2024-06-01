@@ -2,7 +2,7 @@ import {Component, inject} from '@angular/core';
 import {NgForOf, NgIf} from "@angular/common";
 import {GlobalConstants} from "../common/global-constants";
 import {ChannelService} from "../channel.service";
-import {Channel} from "../channel";
+import {Channel} from "../interface/channel";
 import {RouterLink} from "@angular/router";
 
 

@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {User} from "./user";
+import {User} from "./interface/user";
 import {Router} from "@angular/router";
 import {GlobalConstants} from "./common/global-constants";
-import {UserFull} from "./user-full";
+import {UserFull} from "./interface/user-full";
 
 @Injectable({
   providedIn: 'root'

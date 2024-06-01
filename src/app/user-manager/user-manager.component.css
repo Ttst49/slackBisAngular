@@ -487,3 +487,7 @@ a {
 .all{
   margin-left: 30vw;
 }
+
+.logoImg{
+  max-height:50%; max-width:50%;
+}

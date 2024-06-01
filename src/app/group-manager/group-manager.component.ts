@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {NgForOf, NgIf} from "@angular/common";
-import {Group} from "../group";
+import {Group} from "../interface/group";
 import {GroupService} from "../group.service";
 import {GlobalConstants} from "../common/global-constants";
 import {RouterLink} from "@angular/router";

@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {UserFull} from "../user-full";
+import {UserFull} from "../interface/user-full";
 import {UserService} from "../user.service";
 import {NgForOf, NgIf} from "@angular/common";
 import {GlobalConstants} from "../common/global-constants";
@@ -7,7 +7,7 @@ import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {ChannelService} from "../channel.service";
 import {RequestService} from "../request.service";
 import {relative} from "@angular/compiler-cli";
-import {Relation} from "../relation";
+import {Relation} from "../interface/relation";
 
 @Component({
   selector: 'app-user-detail',

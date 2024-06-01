@@ -2,7 +2,7 @@ import {Component, inject} from '@angular/core';
 import {NgForOf, NgIf} from "@angular/common";
 import {GlobalConstants} from "../common/global-constants";
 import {RequestService} from "../request.service";
-import {Request} from "../request";
+import {Request} from "../interface/request";
 
 @Component({
   selector: 'app-request-manager',

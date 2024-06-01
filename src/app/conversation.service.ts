@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {GlobalConstants} from "./common/global-constants";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {Message} from "./message";
+import {Message} from "./interface/message";
 
 @Injectable({
   providedIn: 'root'

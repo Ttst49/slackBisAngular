@@ -2,7 +2,7 @@ import {Component, inject} from '@angular/core';
 import {GlobalConstants} from "../common/global-constants";
 import {NgForOf, NgIf} from "@angular/common";
 import {ConversationService} from "../conversation.service";
-import {Conversation} from "../conversation";
+import {Conversation} from "../interface/conversation";
 
 @Component({
   selector: 'app-conversation-manager',

@@ -1,5 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {Message} from "./message";
+import {Message} from "./interface/message";
 import {GlobalConstants} from "./common/global-constants";
 import {ChannelService} from "./channel.service";
 import {GroupService} from "./group.service";

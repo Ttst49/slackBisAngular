@@ -1,17 +1,17 @@
 import {Component, inject} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {UserService} from "../user.service";
 import {FormsModule} from "@angular/forms";
-import {User} from "../user";
-import {NgIf} from "@angular/common";
-import {GlobalConstants} from "../common/global-constants";
+import {User} from "../interface/user";
+import {NgIf, NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-user-manager',
   standalone: true,
   imports: [
     FormsModule,
-    NgIf
+    NgIf,
+    NgOptimizedImage
   ],
   templateUrl: './user-manager.component.html',
   styleUrl: './user-manager.component.css'

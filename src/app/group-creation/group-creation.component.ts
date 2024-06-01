@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {NgForOf, NgIf} from "@angular/common";
-import {UserFull} from "../user-full";
+import {UserFull} from "../interface/user-full";
 import {UserService} from "../user.service";
 import {FormsModule} from "@angular/forms";
 import {GroupService} from "../group.service";

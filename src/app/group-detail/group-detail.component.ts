@@ -1,5 +1,5 @@
 import {Component, Inject, inject} from '@angular/core';
-import {Group} from "../group";
+import {Group} from "../interface/group";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {GroupService} from "../group.service";
 import {DOCUMENT, NgClass, NgForOf, NgIf} from "@angular/common";

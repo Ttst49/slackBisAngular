@@ -1,11 +1,11 @@
 import {Component, inject} from '@angular/core';
 import {NgClass, NgForOf, NgIf} from "@angular/common";
-import {Channel} from "../channel";
+import {Channel} from "../interface/channel";
 import {ChannelService} from "../channel.service";
 import {ActivatedRoute, RouterLink} from "@angular/router";
 import {routes} from "../app.routes";
 import {FormsModule} from "@angular/forms";
-import {Message} from "../message";
+import {Message} from "../interface/message";
 import {GlobalConstants} from "../common/global-constants";
 import {MessageService} from "../message.service";
 
