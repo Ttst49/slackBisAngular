@@ -24,4 +24,8 @@ aside {
   aside{
     width: 0;
   }
+
+  .view{
+    width: 100%;
+  }
 }

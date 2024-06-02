@@ -2,12 +2,35 @@
   <a href="channel/create" class="button position-fixed bottom-3 right-3">Créer un nouveau channel</a>
   <div>
     <div *ngFor="let channel of channels">
-      <p>{{channel.id}}</p>
-      <p>{{channel.name}}</p>
-      <a [routerLink]="['/channel/show/',channel.id]" class="btn btn-outline-primary">Voir ce channel</a>
-      <button *ngIf="channel.ownerId == GlobalConstants.actualUser.profile.id" (click)="channelService.removeOneChannel(channel.id)" class="btn btn-outline-danger">supprimer ce channel</button>
-      <a (click)="channelService.leaveChannel(channel.id)" *ngIf="isActualUserMember(channel)" class="btn btn-outline-warning">Quitter ce channel</a>
-      <a (click)="channelService.joinChannel(channel.id)" *ngIf="!isActualUserMember(channel)" class="btn btn-outline-success">Rejoindre ce channel</a>
+
+      <div class="cardItem m-6">
+      <a [routerLink]="['/channel/show/',channel.id]">
+      <div class="card">
+        <h3 class="card__title">{{ channel.name }}
+        </h3>
+        <p class="card__content">
+        <p *ngIf="channel.channelMessages.length == 0" class="mb-3 font-normal text-gray-700 dark:text-gray-400">Aucun message pour le moment...</p>
+        <p *ngIf="channel.channelMessages.length > 0" class="mb-3 font-normal text-gray-700 dark:text-gray-400"><strong>Dernier message:
+          <br> </strong> {{channel.channelMessages[channel.channelMessages.length-1].content}} (<i>{{channel.channelMessages[channel.channelMessages.length-1].author.relatedTo.username}}</i>)</p>
+        <div class="card__date">
+          <span>
+            crée le <br>
+            {{channel.createdAt | date:"short"}}
+          </span>
+        </div>
+        <div class="card__arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="15" width="15">
+            <path fill="#fff" d="M13.4697 17.9697C13.1768 18.2626 13.1768 18.7374 13.4697 19.0303C13.7626 19.3232 14.2374 19.3232 14.5303 19.0303L20.3232 13.2374C21.0066 12.554 21.0066 11.446 20.3232 10.7626L14.5303 4.96967C14.2374 4.67678 13.7626 4.67678 13.4697 4.96967C13.1768 5.26256 13.1768 5.73744 13.4697 6.03033L18.6893 11.25H4C3.58579 11.25 3.25 11.5858 3.25 12C3.25 12.4142 3.58579 12.75 4 12.75H18.6893L13.4697 17.9697Z"></path>
+          </svg>
+        </div>
+      </div>
+      </a>
+        <div class="buttons">
+          <button *ngIf="channel.ownerId == GlobalConstants.actualUser.profile.id" (click)="channelService.removeOneChannel(channel.id)" class="button danger">supprimer</button>
+          <a (click)="channelService.leaveChannel(channel.id)" *ngIf="isActualUserMember(channel)" class="button warn">Quitter</a>
+          <a (click)="channelService.joinChannel(channel.id)" *ngIf="!isActualUserMember(channel)" class="button success">Rejoindre</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

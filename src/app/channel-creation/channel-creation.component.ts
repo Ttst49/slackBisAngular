@@ -30,6 +30,7 @@ export class ChannelCreationComponent {
       channelMembers :[],
       channelAdminMembers :[],
       ownerId: this.getRandomInt(100000000),
+      createdAt: new Date()
     }
     return newChannelObject
   }

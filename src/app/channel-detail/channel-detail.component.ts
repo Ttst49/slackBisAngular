@@ -39,12 +39,13 @@ export class ChannelDetailComponent{
   getChannel(id:number){
     this.channelService.getOneChannelById(id).subscribe({next:(channelFromFetch:any)=>{
        this.channel = {
-        id: channelFromFetch.id,
-        name: channelFromFetch.name,
-        channelMessages :channelFromFetch.channelMessages,
-        channelMembers :channelFromFetch.channelMembers,
-        channelAdminMembers :channelFromFetch.channelAdminMembers,
-         ownerId: channelFromFetch.owner.id
+         id: channelFromFetch.id,
+         name: channelFromFetch.name,
+         channelMessages :channelFromFetch.channelMessages,
+         channelMembers :channelFromFetch.channelMembers,
+         channelAdminMembers :channelFromFetch.channelAdminMembers,
+         ownerId: channelFromFetch.owner.id,
+         createdAt: channelFromFetch.createdAt
       }
       }})
   }

@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {NgForOf, NgIf} from "@angular/common";
+import {DatePipe, NgForOf, NgIf} from "@angular/common";
 import {GlobalConstants} from "../common/global-constants";
 import {ChannelService} from "../channel.service";
 import {Channel} from "../interface/channel";
@@ -12,7 +12,8 @@ import {RouterLink} from "@angular/router";
   imports: [
     NgIf,
     NgForOf,
-    RouterLink
+    RouterLink,
+    DatePipe
   ],
   templateUrl: './channel-manager.component.html',
   styleUrl: './channel-manager.component.css'
@@ -41,7 +42,8 @@ export class ChannelManagerComponent {
             channelMessages : channelsFromFetch[i].channelMessages,
             channelMembers : channelsFromFetch[i].channelMembers,
             channelAdminMembers :channelsFromFetch[i].adminChannelMembers,
-            ownerId: channelsFromFetch[i].owner.id
+            ownerId: channelsFromFetch[i].owner.id,
+            createdAt: channelsFromFetch[i].createdAt,
           }
           this.channels.push(newChannel)
         }

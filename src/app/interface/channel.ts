@@ -9,4 +9,5 @@ export interface Channel {
   channelMembers : ProfileFull[]
   channelAdminMembers : UserFull[]
   ownerId:number
+  createdAt: Date
 }
