@@ -74,6 +74,16 @@
   color: var(--bg-color);
 }
 
+.card__btn__secondary:hover {
+  background: #FF5D5DFF;
+  color: var(--bg-color);
+}
+
+.card__btn__success:hover{
+  background: #6dff6d;
+  color: var(--main-color);
+}
+
 .card__btn-solid:hover {
   background: var(--bg-color);
   color: var(--main-color);

@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { OnInit } from '@angular/core';
 import { initFlowbite } from 'flowbite';
-import {NavbarComponent} from "./navbar/navbar.component";
-import {ChannelManagerComponent} from "./channel-manager/channel-manager.component";
+import {NavbarComponent} from "../navbar/navbar.component";
+import {ChannelManagerComponent} from "../channel-manager/channel-manager.component";
 
 @Component({
   selector: 'app-root',
