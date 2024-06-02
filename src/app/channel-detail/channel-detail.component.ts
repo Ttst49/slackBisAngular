@@ -1,11 +1,11 @@
 import {AfterContentChecked, AfterViewInit, Component, inject} from '@angular/core';
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {Channel} from "../interface/channel";
-import {ChannelService} from "../channel.service";
+import {ChannelService} from "../../service/channel.service";
 import {ActivatedRoute, RouterLink} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {GlobalConstants} from "../common/global-constants";
-import {MessageService} from "../message.service";
+import {MessageService} from "../../service/message.service";
 
 @Component({
   selector: 'app-channel-detail',

@@ -16,6 +16,7 @@ aside {
 }
 
 .view {
+  margin-top: 10vh;
   flex-grow: 1;
   width: 76%;
 }

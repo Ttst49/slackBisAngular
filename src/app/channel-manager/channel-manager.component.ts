@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {DatePipe, NgForOf, NgIf} from "@angular/common";
 import {GlobalConstants} from "../common/global-constants";
-import {ChannelService} from "../channel.service";
+import {ChannelService} from "../../service/channel.service";
 import {Channel} from "../interface/channel";
 import {RouterLink} from "@angular/router";
 

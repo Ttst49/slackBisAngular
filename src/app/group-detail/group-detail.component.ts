@@ -1,11 +1,11 @@
 import {Component, Inject, inject} from '@angular/core';
 import {Group} from "../interface/group";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
-import {GroupService} from "../group.service";
+import {GroupService} from "../../service/group.service";
 import {DOCUMENT, NgClass, NgForOf, NgIf} from "@angular/common";
 import {GlobalConstants} from "../common/global-constants";
 import {FormsModule} from "@angular/forms";
-import {MessageService} from "../message.service";
+import {MessageService} from "../../service/message.service";
 
 @Component({
   selector: 'app-group-detail',

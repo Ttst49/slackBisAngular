@@ -1,9 +1,9 @@
 import {Component, inject} from '@angular/core';
 import {NgForOf, NgIf} from "@angular/common";
 import {UserFull} from "../interface/user-full";
-import {UserService} from "../user.service";
+import {UserService} from "../../service/user.service";
 import {FormsModule} from "@angular/forms";
-import {GroupService} from "../group.service";
+import {GroupService} from "../../service/group.service";
 import {Router} from "@angular/router";
 import {GlobalConstants} from "../common/global-constants";
 

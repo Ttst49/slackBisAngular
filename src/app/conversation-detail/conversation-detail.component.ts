@@ -2,8 +2,8 @@ import {Component, inject} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {Conversation} from "../interface/conversation";
-import {MessageService} from "../message.service";
-import {ConversationService} from "../conversation.service";
+import {MessageService} from "../../service/message.service";
+import {ConversationService} from "../../service/conversation.service";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({

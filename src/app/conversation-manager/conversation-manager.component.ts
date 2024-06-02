@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {GlobalConstants} from "../common/global-constants";
 import {NgForOf, NgIf} from "@angular/common";
-import {ConversationService} from "../conversation.service";
+import {ConversationService} from "../../service/conversation.service";
 import {Conversation} from "../interface/conversation";
 
 @Component({

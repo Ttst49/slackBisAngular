@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {Channel} from "../interface/channel";
 import {FormsModule} from "@angular/forms";
-import {ChannelService} from "../channel.service";
+import {ChannelService} from "../../service/channel.service";
 import {GlobalConstants} from "../common/global-constants";
 
 @Component({

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {GlobalConstants} from "./common/global-constants";
-import {Message} from "./interface/message";
+import {GlobalConstants} from "../app/common/global-constants";
+import {Message} from "../app/interface/message";
 import {Router} from "@angular/router";
 
 @Injectable({
