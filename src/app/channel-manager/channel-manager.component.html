@@ -1,5 +1,5 @@
 <div *ngIf="GlobalConstants.token != null" class="channelManager">
-  <a href="channel/create" class="btn btn-success">Créer un nouveau channel</a>
+  <a href="channel/create" class="button position-fixed bottom-3 right-3">Créer un nouveau channel</a>
   <div>
     <div *ngFor="let channel of channels">
       <p>{{channel.id}}</p>
