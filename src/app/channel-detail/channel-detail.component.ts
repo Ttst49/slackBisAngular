@@ -1,11 +1,9 @@
-import {Component, inject} from '@angular/core';
+import {AfterContentChecked, AfterViewInit, Component, inject} from '@angular/core';
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {Channel} from "../interface/channel";
 import {ChannelService} from "../channel.service";
 import {ActivatedRoute, RouterLink} from "@angular/router";
-import {routes} from "../app.routes";
 import {FormsModule} from "@angular/forms";
-import {Message} from "../interface/message";
 import {GlobalConstants} from "../common/global-constants";
 import {MessageService} from "../message.service";
 
@@ -22,7 +20,7 @@ import {MessageService} from "../message.service";
   templateUrl: './channel-detail.component.html',
   styleUrl: './channel-detail.component.css'
 })
-export class ChannelDetailComponent {
+export class ChannelDetailComponent{
 
   channel! : Channel
   channelService: ChannelService = inject(ChannelService)
@@ -30,10 +28,13 @@ export class ChannelDetailComponent {
   messageInput : string = ""
   messageService: MessageService = inject(MessageService)
 
+
+
   constructor() {
     let id = this.route.snapshot.params["id"]
     this.getChannel(id)
   }
+
 
   getChannel(id:number){
     this.channelService.getOneChannelById(id).subscribe({next:(channelFromFetch:any)=>{
@@ -45,8 +46,11 @@ export class ChannelDetailComponent {
         channelAdminMembers :channelFromFetch.channelAdminMembers,
          ownerId: channelFromFetch.owner.id
       }
-      console.log(channelFromFetch)
       }})
+  }
+
+  scrollToBottom() {
+    window.scrollTo(0, document.body.scrollHeight);
   }
 
 

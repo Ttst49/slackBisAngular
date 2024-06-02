@@ -6,18 +6,18 @@
 
 /*Declare layout*/
 .container{
-  display: flex;
+  display: -webkit-inline-box;
   width: 100vw;
 }
 
 aside {
-  width:30rem;
+  width:18rem;
   height: 100vh;
 }
 
 .view {
   flex-grow: 1;
-  height: 100vh;
+  width: 76%;
 }
 
 @media (max-width: 640px) {

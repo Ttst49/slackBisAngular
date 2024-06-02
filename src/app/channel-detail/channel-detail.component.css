@@ -1,5 +1,4 @@
 .channelDetail{
-  margin-left: 30%;
   position: fixed;
   width: 70vw;
   background-color: white;
@@ -34,7 +33,6 @@
 }
 
 .messageInput{
-  width: 50vw;
   position: fixed;
   bottom: 10px;
   right: 25vw;
@@ -55,7 +53,7 @@
 
 .messagesZone{
  overflow: scroll;
-  margin-bottom: 10vh;
+  padding-bottom: 10vh;
 }
 
 .messages{
