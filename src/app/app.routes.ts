@@ -41,7 +41,7 @@ export const routes: Routes = [
     path: "profile/:id", component: UserDetailComponent
   },
   {
-    path: "profile/getFriends", component: UserDetailComponent
+    path: "friends", component: UserDetailComponent
   },
   {
     path: "channel/users/:id", component: UserDetailComponent
