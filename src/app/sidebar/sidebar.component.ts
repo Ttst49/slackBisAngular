@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {AfterViewInit, Component, inject} from '@angular/core';
 import {NgIf, NgOptimizedImage} from "@angular/common";
 import {GlobalConstants} from "../common/global-constants";
 import {UserService} from "../../service/user.service";
@@ -13,7 +13,7 @@ import {UserService} from "../../service/user.service";
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
-export class SidebarComponent {
+export class SidebarComponent{
 
   userService: UserService = inject(UserService)
   token = GlobalConstants.token

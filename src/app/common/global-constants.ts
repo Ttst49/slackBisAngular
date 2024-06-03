@@ -5,7 +5,7 @@ export class GlobalConstants{
 
 
   public static token = localStorage.getItem("bearerToken")
-  public static baseUrl: string = "https://localhost:8000/api/" //"https://slackbis.thibautstachnick.com/api/"
+  public static baseUrl: string = "https://localhost:8001/api/" //"https://slackbis.thibautstachnick.com/api/"
   public static actualUser : UserFull
   public static actualProfile: ProfileFull
   public static errorStatus : string

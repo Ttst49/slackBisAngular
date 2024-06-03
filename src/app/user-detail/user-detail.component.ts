@@ -6,8 +6,7 @@ import {GlobalConstants} from "../common/global-constants";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {ChannelService} from "../../service/channel.service";
 import {RequestService} from "../../service/request.service";
-import {relative} from "@angular/compiler-cli";
-import {Relation} from "../interface/relation";
+
 
 @Component({
   selector: 'app-user-detail',
@@ -35,7 +34,7 @@ export class UserDetailComponent {
     if (this.route.snapshot.url.length == 3){
       this.getUsersFromChannel(parseInt(this.route.snapshot.url[2].path))
     }else if (this.route.snapshot.url[1] != null
-      && this.route.snapshot.url[1].path == "getFriends"){
+      && this.route.snapshot.url[1].path == "friends"){
       this.users = GlobalConstants.actualFriends
     } else if (id){
       this.getOneUser(id)
