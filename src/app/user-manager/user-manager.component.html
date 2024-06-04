@@ -33,8 +33,8 @@
       </div>
 
 
-      <button *ngIf="activeRoute == '/register'" (click)="register(createUserObject(username,password))" type="submit" class="form__submit">S'enregistrer</button>
-      <button *ngIf="activeRoute == '/login'" (click)="login(createUserObject(username,password))" type="submit" class="form__submit">Se connecter</button>
+      <button *ngIf="activeRoute == '/register'" (click)="register(createUserObject(username,password))" type="submit" class="form__submit button">S'enregistrer</button>
+      <button *ngIf="activeRoute == '/login'" (click)="login(createUserObject(username,password))" type="submit" class="form__submit button">Se connecter</button>
     </form>
 
     <p *ngIf="activeRoute == '/register'" class="form__footer">

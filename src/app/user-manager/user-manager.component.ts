@@ -4,6 +4,7 @@ import {UserService} from "../../service/user.service";
 import {FormsModule} from "@angular/forms";
 import {User} from "../interface/user";
 import {NgIf, NgOptimizedImage} from "@angular/common";
+import {SidebarComponent} from "../sidebar/sidebar.component";
 
 @Component({
   selector: 'app-user-manager',
@@ -36,12 +37,14 @@ export class UserManagerComponent {
     return user
   }
 
-  register(user:User){
+  async register(user:User){
     this.userService.registerUser(user)
+    await this.router.navigateByUrl("/home")
   }
 
-  login(user:User){
+  async login(user:User){
     this.userService.loginUser(user)
+    await this.router.navigateByUrl("/home")
   }
 
 
