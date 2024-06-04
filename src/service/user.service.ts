@@ -21,6 +21,9 @@ export class UserService {
   loginUser(user:User){
     this.http.post(GlobalConstants.baseUrl+"login_check",user).subscribe({next:(data:any)=>{
         localStorage.setItem("bearerToken",data.token)
+        if (data.token){
+          
+        }
       }})
   }
 
